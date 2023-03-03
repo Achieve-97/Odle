@@ -31,7 +31,6 @@ public class AdminService implements AdminServiceInterface {
         String password = passwordEncoder.encode(adminSignupRequest.getPassword());
         String email = adminSignupRequest.getEmail();
 
-        
         userRepository.findByUsername(username).ifPresent(user -> {
             throw new IllegalArgumentException("중복된 사용자가 존재합니다.");
         });
